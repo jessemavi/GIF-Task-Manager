@@ -79,18 +79,18 @@ app.delete('/tasks/:task_id', function(req, res) {
   // console.log(req.params);
 
   // remove task from db
-  Task.remove({_id: req.params.task_id}, function(err, tasks) {
+  Task.remove({_id: req.params.task_id}, function(err, task) {
     if(err) {
       res.send(err);
     }
+    // after task removed query db and display all tasks
+    Task.find(function(err, tasks) {
+      if(err) {
+        res.send(err);
+      }
+      res.json(tasks);
+    });  
   });
-  // after task removed query db and display all tasks
-  Task.find(function(err, tasks) {
-    if(err) {
-      res.send(err);
-    }
-    res.json(tasks);
-  });  
 });
 
 

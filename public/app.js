@@ -3,9 +3,21 @@
 var app = angular.module('taskManagerApp', []);
 
 // create a controller passing in $scope to store tasks and $http for routing
-app.controller('MainController', function($scope, $http) {
+app.controller('appController', function($scope, $http) {
 
   $scope.formData = {};
+  $scope.quotes = ['nicely done', 'keep going'];
+
+  // on page load make the following requests:
+  
+  // get request to get quote of the day from theysaidso.com API on initial page load
+  $http.get('http://quotes.rest/qod.json')
+    .success(function(quote) {
+      $scope.quote = quote.contents.quotes[0].quote;
+    })
+    .error(function(quote) {
+      console.log('error getting quote', quote);
+    });
 
   // get request to '/tasks' to get all tasks as a res and display them on page load
   $http.get('/tasks')
@@ -39,7 +51,9 @@ app.controller('MainController', function($scope, $http) {
       .success(function(taskData) {
         $scope.tasks = taskData;
         console.log(taskData.length);
-        alert('Task completed! Nicely done.');
+        // alert('Task completed! Nicely done.');
+        // alert($scope.quotes[0]);
+
       })
       .error(function(taskData) {
         console.log('error deleting task', taskData);
