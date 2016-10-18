@@ -1,4 +1,5 @@
-// create a module, create a controller, and define functions to handle tasks. Then we can apply to view.
+// create a module, create a controller, and define functions to handle tasks. Then apply to view.
+
 // create an angular module
 var app = angular.module('taskManagerApp', []);
 
@@ -6,10 +7,10 @@ var app = angular.module('taskManagerApp', []);
 app.controller('appController', function($scope, $http) {
 
   $scope.formData = {};
-  $scope.quotes = ['nicely done', 'keep going'];
+  $scope.gifs = ['<iframe src="//giphy.com/embed/2vA33ikUb0Qz6" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/xT0BKAB7vMb10rfnvG" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
 
   // on page load make the following requests:
-  
+
   // get request to get quote of the day from theysaidso.com API on initial page load
   $http.get('http://quotes.rest/qod.json')
     .success(function(quote) {
@@ -37,6 +38,7 @@ app.controller('appController', function($scope, $http) {
         $scope.tasks = taskData;
         $scope.formData = {};
         console.log(taskData.length);
+        // angular.element('.gifDiv').empty();
       })
       .error(function(taskData) {
         console.log('error posting task', taskData);
@@ -51,9 +53,9 @@ app.controller('appController', function($scope, $http) {
       .success(function(taskData) {
         $scope.tasks = taskData;
         console.log(taskData.length);
-        // alert('Task completed! Nicely done.');
-        // alert($scope.quotes[0]);
-
+        angular.element('.gif').empty();
+        var svgTag = angular.element('<iframe src="//giphy.com/embed/2vA33ikUb0Qz6" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+        angular.element(svgTag).appendTo('.gif');
       })
       .error(function(taskData) {
         console.log('error deleting task', taskData);
@@ -61,7 +63,4 @@ app.controller('appController', function($scope, $http) {
   };
 
 });
-
-
-
 
