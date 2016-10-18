@@ -4,11 +4,13 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var morgan = require('morgan');
 
 
 
 // -----------------------------------------------------------------------------------------------------------
 // middleware 
+app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,11 +19,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // -----------------------------------------------------------------------------------------------------------
 // configuration to local mongodb
-mongoose.connect('mongodb://localhost: 27017/taskManager');
+mongoose.connect('mongodb://localhost:27017/taskManager');
 
 // mongodb schema and model setup
 var taskSchema = mongoose.Schema({
   text: String,
+  done: Boolean
 });
 
 var Task = mongoose.model('Task', taskSchema);
@@ -34,7 +37,7 @@ var Task = mongoose.model('Task', taskSchema);
 // get all tasks
 app.get('/tasks', function(req, res) {
   console.log('get request submitted');
-  
+
   // get all tasks from db and return them
   Task.find(function(err, tasks) {
     if(err) {
@@ -51,7 +54,7 @@ app.post('/tasks', function(req, res) {
   console.log(req.body);
 
   // add a task to the db
-  Task.create({text: req.body.text}, function(err, tasks) {
+  Task.create({text: req.body.text, done: false}, function(err, tasks) {
     if(err) {
       res.send(err);
     }
@@ -91,8 +94,14 @@ app.delete('/tasks/:task_id', function(req, res) {
 });
 
 
+// frontend route: serve files in public folder on initial page load
+app.get('/', function(req, res) {
+  res.sendFile('./Public/index.html');
+});
 
-// ------------------------------------------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------------------------------------
 // server
 app.listen(8030, function() {
   console.log('app listening on port 8030');
