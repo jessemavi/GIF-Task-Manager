@@ -1,11 +1,11 @@
 * {
-  padding-left: 7px
+  padding: 4px;
+}
+
+h1, p, h5, form, .gif {
+  text-align: center;
 }
 
 .task {
-  border: 10px
-}
-
-.gif {
-  size: 2em;
+  margin-left: 500px;
 }

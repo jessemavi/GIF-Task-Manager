@@ -3,7 +3,7 @@
 <html ng-app="taskManagerApp">
 
 <head>
-  <title>Task Manager</title>
+  <title>GIF Task Manager</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,16 +13,15 @@
 
 <body ng-controller="appController">
 
-  <h1>Task Manager</h1>
-  <p>Today's quote: {{quote}}</p>
+  <h1><strong>GIF Task Manager</strong></h1>
+  <p><strong>Today's quote:</strong> {{quote}}</p>
   <h5>You have {{tasks.length}} task(s) left to complete.</h5>
 
   <!-- form with submit button to create tasks -->
   <form>
-    <input type="text" placeholder="Add a task here" ng-model="formData.text">
+    <input type="text" placeholder="Add a task here" size="30" ng-model="formData.text">
     <button class="submit" type="submit" ng-click=createTask()>Add task</button>
   </form>
-
 
   <!-- task list with a checkbox for each task -->
   <!-- loop over the todos in $scope.tasks -->
@@ -30,9 +29,8 @@
     <input type="checkbox" id="taskCheckbox" ng-click="deleteTask(task._id)"> {{task.text}}
   </div>
 
+  <!-- area below tasks to add gifs to -->
   <div class="gif"></div>
-
-<!--   <iframe class="gif" src="//giphy.com/embed/2vA33ikUb0Qz6" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
 
 </body>
 
