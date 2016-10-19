@@ -54,7 +54,12 @@ app.controller('appController', function($scope, $http) {
         $scope.tasks = taskData;
         console.log(taskData.length);
         angular.element('.gif').empty();
-        var gif = $scope.gifs[Math.floor(Math.random() * $scope.gifs.length)];
+        var gif;
+        if($scope.tasks.length === 0) {
+          gif = '<iframe src="//giphy.com/embed/xThuWtYjkLvUvK4zp6" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>';
+        } else {
+          gif = $scope.gifs[Math.floor(Math.random() * $scope.gifs.length)];
+        }
         angular.element(gif).appendTo('.gif');
       })
       .error(function(taskData) {

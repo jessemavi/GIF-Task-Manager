@@ -7,14 +7,12 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
 
-
 // -----------------------------------------------------------------------------------------------------------
 // middleware 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
 
 
 // -----------------------------------------------------------------------------------------------------------
@@ -28,7 +26,6 @@ var taskSchema = mongoose.Schema({
 });
 
 var Task = mongoose.model('Task', taskSchema);
-
 
 
 // -----------------------------------------------------------------------------------------------------------
@@ -100,11 +97,9 @@ app.get('/', function(req, res) {
 });
 
 
-
 // -----------------------------------------------------------------------------------------------------------
 // server
 app.listen(8030, function() {
   console.log('app listening on port 8030');
 });
-
 
