@@ -37,16 +37,22 @@
 
 
 
-Features:
+
+
+
+
+
+Potential Features to add:
+  -use giphy API instead of local storage for gifs 
   -signup/login with user email and password
   -login with other services(FB, Google, etc..)
-  -add tasks(task, due date, category)
-  -filter by category
-  -mark or delete completed tasks
+  -filter by task category
   -add a location to task --> display location on Google Maps
-
 
 Technologies used:
   -Node/Express(backend/API)
   -MongoDB/Mongoose(database)
-  -Angular or React(frontend)
+  -Angular(frontend)
+
+External APIs
+  -theysaidso.com  

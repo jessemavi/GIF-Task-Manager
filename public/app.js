@@ -7,7 +7,16 @@ var app = angular.module('taskManagerApp', []);
 app.controller('appController', function($scope, $http) {
 
   $scope.formData = {};
-  $scope.gifs = ['<iframe src="//giphy.com/embed/2vA33ikUb0Qz6" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/xT0BKAB7vMb10rfnvG" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/3o7qDEq2bMbcbPRQ2c" width="480" height="333" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/Mp4hQy51LjY6A" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/eoxomXXVL2S0E" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/10ERZqYioLWJ6U" width="480" height="330" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/KEVNWkmWm6dm8" width="480" height="273" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', '<iframe src="//giphy.com/embed/MteOtn95GNx5e" width="480" height="398" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
+  $scope.gifs = [
+  '<iframe src="//giphy.com/embed/2vA33ikUb0Qz6" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/xT0BKAB7vMb10rfnvG" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/3o7qDEq2bMbcbPRQ2c" width="480" height="333" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/Mp4hQy51LjY6A" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/eoxomXXVL2S0E" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/10ERZqYioLWJ6U" width="480" height="330" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/KEVNWkmWm6dm8" width="480" height="273" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>', 
+  '<iframe src="//giphy.com/embed/MteOtn95GNx5e" width="480" height="398" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+  ];
 
   // on page load make the following requests:
 
