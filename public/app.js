@@ -41,17 +41,19 @@ app.controller('appController', function($scope, $http) {
 
   // function for creating a task
   $scope.createTask = function() {
-    // post request to '/tasks' to post a task and add it to the db and add it to taskData object to show on page
-    $http.post('/tasks', $scope.formData)
-      .success(function(taskData) {
-        $scope.tasks = taskData;
-        $scope.formData = {};
-        console.log(taskData.length);
-        angular.element('.gif').empty();
-      })
-      .error(function(taskData) {
-        console.log('error posting task', taskData);
-      });
+    if($scope.formData.text) {
+      // post request to '/tasks' to post a task and add it to the db and add it to taskData object to show on page
+      $http.post('/tasks', $scope.formData)
+        .success(function(taskData) {
+          $scope.tasks = taskData;
+          $scope.formData = {};
+          console.log(taskData.length);
+          angular.element('.gif').empty();
+        })
+        .error(function(taskData) {
+          console.log('error posting task', taskData);
+        });
+    }
   };
 
 

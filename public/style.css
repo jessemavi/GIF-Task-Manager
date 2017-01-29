@@ -1,4 +1,19 @@
-* {
+body {
   padding: 4px;
   text-align: center;
+  background-color: skyblue;
 }
+
+.task {
+  text-align: left;
+  margin: auto;
+  max-width: 340px;
+  padding: 3px;
+  font-weight: bold;
+}
+
+.gif {
+  margin-top: 13px;
+}
+
+
