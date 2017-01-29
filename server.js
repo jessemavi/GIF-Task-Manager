@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // -----------------------------------------------------------------------------------------------------------
 // configuration to local mongodb
-mongoose.connect('mongodb://localhost:27017/taskManager');
+mongoose.connect('mongodb://localhost/taskManager');
 
 // mongodb schema and model setup
 var taskSchema = mongoose.Schema({
